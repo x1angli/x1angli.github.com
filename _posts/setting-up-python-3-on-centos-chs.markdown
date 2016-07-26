@@ -1,9 +1,10 @@
 ---
 published: true
-title: Setting Up Python 3 on Centons
+title: Setting Up Python 3 on Centos
 layout: post
 tags: [Centos, Python, Aliyun, 阿里云]
 categories: [Configuration]
+permalink: setting-up-python-3-on-centos-chs
 ---
 # 在Centos主机上安装Python 3
 
