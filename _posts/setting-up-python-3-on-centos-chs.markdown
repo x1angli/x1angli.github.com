@@ -2,7 +2,7 @@
 published: true
 title: Setting Up Python 3 on Centos
 layout: post
-tags: [Centos, Python, Aliyun, 阿里云]
+tags: [Centos, Python, Aliyun]
 categories: [Configuration]
 permalink: setting-up-python-3-on-centos-chs
 ---
