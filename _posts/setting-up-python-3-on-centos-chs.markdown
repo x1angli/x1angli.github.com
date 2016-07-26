@@ -21,11 +21,13 @@ permalink: setting-up-python-3-on-centos-chs
 
 ## 详细拆解：
 
+#### 更新yum包
 
     sudo yum -y update
 
 这句就不需要我多说了
 
+#### 安装Python 3.4的核心程序和扩展程序
 
     sudo yum install python34 python34-devel python34-setuptools
 
@@ -35,6 +37,7 @@ permalink: setting-up-python-3-on-centos-chs
 
 这么做虽然是对的，但国内的VPS在执行这一条时速度非常慢，因为涉及到从国外网站上下载东西。
 
+#### 安装Python 3相关联的pip
     sudo easy_install-3.4 pip
 
 注意，一些教程建议的是
@@ -43,6 +46,7 @@ permalink: setting-up-python-3-on-centos-chs
 这其实是徒劳的，因为这样其实会安装Python 2的pip，而Python 2的pip并不是我们想要的
 
 
+#### 用pip去更新自己，并且安装virtuanenv
 
     sudo pip3 install --upgrade pip
     sudo pip3 install --upgrade virtualenv
