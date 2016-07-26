@@ -4,6 +4,7 @@ title: 在Centos主机上安装Python 3
 layout: post
 tags: [Centos, Python, Aliyun, 阿里云]
 categories: [Configuation]
+permalink: setting-up-python-3-on-centos-chs
 ---
 > 本文将以阿里云的Centos 7.2 64位ECS实例为样板，介绍如何在Centos主机上安装Python 3.x，及pip/virtualenv等必备组件
 
