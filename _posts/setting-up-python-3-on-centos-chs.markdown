@@ -29,14 +29,15 @@ permalink: setting-up-python-3-on-centos-chs
 
     sudo yum install python34 python34-devel python34-setuptools
 
-注意，一些教程会建议从一个网站上下载并执行一个.py脚本：
-`sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`
+注意，一些教程会建议
+> 从一个网站上下载并执行一个.py脚本：
+> `sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`
 这么做虽然是对的，但国内的VPS在执行这一条时速度非常慢，因为涉及到从国外网站上下载东西。
 
     sudo easy_install-3.4 pip
 
 注意，一些教程建议的是
-`sudo easy_install pip`
+> `sudo easy_install pip`
 这其实是徒劳的，因为这样其实会安装Python 2的pip，而Python 2的pip并不是我们想要的
 
 
