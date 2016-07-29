@@ -35,7 +35,7 @@ permalink: setting-up-python-3-on-centos-chs
 > 从一个网站上下载并执行一个.py脚本：
 > `sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`
 
-这么做虽然是对的，但国内的VPS在执行这一条时速度非常慢，因为涉及到从国外网站上下载东西。
+这么做虽然是对的，但国内的VPS所在的机房连国外一般非常慢，导致在执行这一条时会花费非常长的时间，因此不建议这么用。
 
 #### 安装Python 3相关联的pip
     sudo easy_install-3.4 pip
