@@ -13,7 +13,7 @@ permalink: setting-up-python-3-on-centos-chs
 ## 懒人版：直接复制粘贴下列代码到SSH终端去
 
     sudo yum -y update
-    sudo yum install python34 python34-devel python34-setuptools
+    sudo yum -y install python34 python34-devel python34-setuptools
     sudo easy_install-3.4 pip
     sudo pip3 install --upgrade pip
     sudo pip3 install --upgrade virtualenv
@@ -29,14 +29,14 @@ permalink: setting-up-python-3-on-centos-chs
 
 #### 安装Python 3.4的核心程序和扩展程序
 
-    sudo yum install python34 python34-devel 
+    sudo yum -y install python34 python34-devel 
 
 在这里, `python34`和`python34-devel`一般连用。而`python34-devel`一般是安装python时必然附加的选项，否则一些pip包就无法安装。
 
 
 #### 安装Python 3相关联的pip
 
-    sudo yum install python34-setuptools
+    sudo yum -y install python34-setuptools
     sudo easy_install-3.4 pip
 
 这里从yum镜像中下载`python34-setuptools`包，并且在本地安装Python 3的pip    
