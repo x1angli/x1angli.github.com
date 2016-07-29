@@ -31,11 +31,12 @@ permalink: setting-up-python-3-on-centos-chs
 
     sudo yum install python34 python34-devel python34-setuptools
 
-注意，一些教程会建议
-> 从一个网站上下载并执行一个.py脚本：
+在这里, `python34`和`python34-devel`一般连用。而`python34-devel`一般是安装python时必然附加的选项，否则一些pip包就无法安装。
+
+而`python34-setuptools`则是为了安装pip做准备。注意，一些教程上不是通过yum安装`python34-setuptools`，而是建议用户从一个网站上下载并执行一个.py脚本：
 > `sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`
 
-这么做虽然是对的，但国内的VPS所在的机房连国外一般非常慢，导致在执行这一条时会花费非常长的时间，因此不建议这么用。
+这么做虽然也能装上pip，但国内的VPS所在的机房连国外一般非常慢，导致在执行这一条时会花费非常长的时间，因此不建议这么用。
 
 #### 安装Python 3相关联的pip
     sudo easy_install-3.4 pip
@@ -43,7 +44,7 @@ permalink: setting-up-python-3-on-centos-chs
 注意，一些教程建议的是
 > `sudo easy_install pip`
 
-这其实是徒劳的，因为这样其实会安装Python 2的pip，而Python 2的pip并不是我们想要的
+这其实是徒劳的，因为这样其实会安装Python 2的pip，而Python 2的pip应该已经安装在Centos里面的，并且不是我们想要的。我们需要Python 3的pip
 
 
 #### 用pip去更新自己，并且安装virtuanenv
