@@ -21,7 +21,7 @@ permalink: setting-up-python-3-on-centos-chs
 使用国内公有云（如阿里云等）的程序员、系统管理员。
 
 ## 主要思路：
-1. 由于阿里云的操作系统在生成实例时已经预先将epel-release等repository指向阿里云自己的镜像，显然ECS主机访问这些镜像是最快的，因此我们尽量使用这些镜像，而避免从访问速度相对慢的网址上下载内容。
+1. 由于阿里云的操作系统在生成实例时已经预先将epel-release等repository指向阿里云自己的源，显然ECS主机访问这些镜像是最快的，因此我们尽量使用这些源，并避免从访问速度相对慢的境外网站下载内容。
 2. 相对于已编译的包，自行编译既费时又容易出错，因此尽量使用已编译的包
 3. 推荐使用新版本的Python 3。
 
@@ -29,6 +29,7 @@ permalink: setting-up-python-3-on-centos-chs
 
 在SSH上先输入`sudo`，及管理员密码，再将下列代码复制粘贴并执行：
 
+    sudo yum makecache
     sudo yum -y update
     sudo yum -y install python34 python34-devel python34-setuptools
     sudo easy_install-3.4 pip
@@ -38,8 +39,9 @@ permalink: setting-up-python-3-on-centos-chs
 
 ## 详细拆解：
 
-#### 更新yum包
+#### 更新yum缓存及已经安装的包
 
+    sudo yum makecache
     sudo yum -y update
 
 更新yum包管理器上的所有已经安装的包。`-y`参数表示所有的提示询问都会被默认yes而继续，这样整个过程就不会被打断。
