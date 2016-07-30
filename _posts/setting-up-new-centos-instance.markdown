@@ -64,12 +64,8 @@ permalink: setting-up-new-centos-instance-chs
     sudo sh -c 'echo "/swapfile none swap sw 0 0" >> /etc/fstab'
     
     =====================================
-    
-    sudo yum -y update
-    
-    # sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
-    # sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-    # sudo wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo
+
     sudo yum clean all
     sudo yum makecache
-    
+    sudo yum -y update
+
