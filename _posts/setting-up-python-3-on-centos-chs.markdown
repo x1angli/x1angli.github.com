@@ -2,7 +2,7 @@
 published: true
 title: Setting Up Python 3 on Centos
 layout: post
-tags: [Centos, Python, Aliyun]
+tags: [DevOps, Centos, Linux, Python, Python 3, 阿里云, 系统管理]
 categories: [Configuration]
 permalink: setting-up-python-3-on-centos-chs
 ---
@@ -10,14 +10,31 @@ permalink: setting-up-python-3-on-centos-chs
 
 > 本文将以阿里云的Centos 7.2 64位ECS实例为样板，介绍如何在Centos主机上安装Python 3.x，及pip/virtualenv等必备组件
 
-## 懒人版：直接复制粘贴下列代码到SSH终端去
+## 序
+
+虽然网上有一些类似的教程作为参考，主要还是面向国外的公有云用户。由于特殊国情（国际带宽相对受限以及……），国内公有云在访问国外镜像时面临速度慢或访问不稳定等问题。因此，国内用户无法直接照搬这些教程，而需要一份专门针对国情出发的实用系统管理手册。
+
+本文将以阿里云的Centos 7.2 64位ECS实例为样板，介绍如何在Centos主机上安装Python 3.x，及pip/virtualenv等必备组件。
+
+## 目标读者
+
+使用国内公有云（如阿里云等）的程序员、系统管理员。
+
+## 主要思路：
+1. 由于阿里云的操作系统在生成实例时已经预先将epel-release等repository指向阿里云自己的镜像，显然ECS主机访问这些镜像是最快的，因此我们尽量使用这些镜像，而避免从访问速度相对慢的网址上下载内容。
+2. 相对于已编译的包，自行编译既费时又容易出错，因此尽量使用已编译的包
+3. 推荐使用新版本的Python 3。
+
+## 懒人简明版：
+
+在SSH上先输入`sudo`，及管理员密码，再将下列代码复制粘贴并执行：
 
     sudo yum -y update
     sudo yum -y install python34 python34-devel python34-setuptools
     sudo easy_install-3.4 pip
     sudo pip3 install --upgrade pip
     sudo pip3 install --upgrade virtualenv
-
+    
 
 ## 详细拆解：
 
@@ -25,7 +42,7 @@ permalink: setting-up-python-3-on-centos-chs
 
     sudo yum -y update
 
-这句就不需要我多说了
+更新yum包管理器上的所有已经安装的包。`-y`参数表示所有的提示询问都会被默认yes而继续，这样整个过程就不会被打断。
 
 #### 安装Python 3.4的核心程序和扩展程序
 
