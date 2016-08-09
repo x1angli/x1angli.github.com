@@ -9,7 +9,7 @@ permalink: setting-up-python-3-on-centos-chs
 # 在Centos主机上安装Python 3
 
 > 本文将以阿里云的Centos 7.2 64位ECS实例为样板，介绍如何在Centos主机上安装Python 3.x，及pip/virtualenv等必备组件
-> 高能警报：由于通过此种方式安装的virtualenv有可能会被sudo命令失效，即，用户先通过virtualenv命令建立一个虚拟环境，然后再激活此虚拟环境。这时候，任何sudo后的pip命令都将指向原有的python，而不是新建立的虚拟环境……
+> 高能警报：由于通过此种方式安装的virtualenv有可能会被sudo命令失效，即，用户先通过virtualenv命令建立一个虚拟环境，然后再激活此虚拟环境。这时候，任何sudo后的pip命令都将指向全局python环境，而不是指向沙盒中的虚拟环境；只有普通的pip或pip3命令会指向虚拟环境。然而不幸的是，很多包在通过pip安装时都需要sudo权限……因此最好的解决方式是索性抛弃虚拟环境…… 
 
 ## 序
 
