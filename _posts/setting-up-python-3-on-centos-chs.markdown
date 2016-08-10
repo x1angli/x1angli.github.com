@@ -74,6 +74,7 @@ permalink: setting-up-python-3-on-centos-chs
 > 注2：相对于`sudo easy_install-3.4 pip`，一些教程建议的是 `sudo easy_install pip`，漏掉了版本号`3.4`。<br />
 > 然而，这样只会安装Python 2的pip。而Python 2的pip应该已经在Centos上预先安装，且pip for python 2不是我们想要的。因此，我们需要调用于`sudo easy_install-3.4 pip`来安装Python 3的pip
 
+> 注3：或许你会想到用`sudo yum -y install python34-pip`或`sudo yum -y install python3-pip`，两者均行不通的，因为似乎EPEL里没有这个包。而`sudo yum -y install python-pip`则是面向python 2.x的pip 7.1.2
 
 #### 用pip去更新自己，并且安装virtuanenv
 
