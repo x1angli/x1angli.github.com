@@ -14,4 +14,22 @@ permalink: setting-up-new-debian-instance-chs
 
 使用Debian Linux的的程序员、系统管理员。
 
+## 大致：
+ssh root@SERVER_IP_ADDRESS
+echo -e "PASSWORD\nPASSWORD"|sudo adduser USERNAME --gecos ""
+apt-get update -y
+apt-get install sudo -y
+usermod -a -G sudo USERNAME
+su - USERNAME
+mkdir .ssh
+chmod 700 .ssh
+nano .ssh/authorized_keys
+# copy.....
+chmod 600 .ssh/authorized_keys
+exit
+nano /etc/ssh/sshd_config
+#PermitRootLogin yes
+#PermitRootLogin no
+systemctl restart ssh
+
 
