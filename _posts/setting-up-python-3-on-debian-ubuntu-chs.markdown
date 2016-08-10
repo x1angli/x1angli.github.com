@@ -63,15 +63,14 @@ permalink: setting-up-python-3-on-debian-ubuntu-chs
 下载`python34-setuptools`包，并且在本地安装Python 3的pip    
     
 > 注1：也许你会听说这样一种做法：`sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`。<br />
-> 在“出厂”时，阿里云自己的ECS主机已经事先将PyPI的源指向本地镜像，节省了该脚本在下载pip和wheel的.whl文件的时间。所以在执行这一条命令需要小心，有可能PyPI的源会改回官方的源，造成速度降低
-> 考虑到国内的VPS所在的机房连国外一般非常慢，导致在执行这一条时会花费非常长的时间，因此不建议在PyPI在指向国外镜像时如此使用。
+> 在“出厂”时，阿里云自己的ECS主机已经事先将PyPI的源指向本地镜像，节省了该脚本在下载pip和wheel的.whl文件的时间。所以在执行这一条命令需要小心，有可能PyPI的源会改回官方的源，造成速度降低。因此用户在执行命令后，请注意检查PyPI的源，若发现已被修改到慢速镜像，请改回相对快速的本地区镜像。
 
-> 注2：相对于`sudo easy_install-3.4 pip`，一些教程建议的是 `sudo easy_install pip`，漏掉了版本号`3.4`。<br />
-> 然而，这样只会安装Python 2的pip。而Python 2的pip应该已经在Centos上预先安装，且pip for python 2不是我们想要的。因此，我们需要调用于`sudo easy_install-3.4 pip`来安装Python 3的pip
-
-> 注3：或许你会想到用`sudo apt-get -y install python3-pip`。不幸的是，如果你通过这种方式安装pip后，会存在以下问题：
+> 注2：或许你会想到用`sudo apt-get -y install python3-pip`。不幸的是，如果你通过这种方式安装pip后，会存在以下问题：
 > 1）pip的版本只有可怜的`1.5.6`，更关键的是，在安装1.5版python3-pip之后，pip的版本将被锁定，你无法用新版本的pip（除非调用`apt-get -y remove python3-pip`）
 > 2）以下的包会被一同安装：python3-chardet, python3-colorama, python3-distlib, python3-six, python3-html5li
+
+> 注3：相对于`sudo easy_install-3.4 pip`，一些教程建议的是 `sudo easy_install pip`，漏掉了版本号`3.4`。<br />
+> 然而，这样只会安装Python 2的pip。而Python 2的pip应该已经在Centos上预先安装，且pip for python 2不是我们想要的。因此，我们需要调用于`sudo easy_install-3.4 pip`来安装Python 3的pip
 
 > 注4：也有人会提过：python3.4自带pip。这话对了一半：如果自己下载并make编译的python3会自带pip；然而对于apt-get的python3则不带pip
 
