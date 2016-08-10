@@ -43,7 +43,7 @@ permalink: changing-pypi-url-to-speed-up-pip-install
 
 2. 有一个比较不同镜像更新效率的网站：https://www.pypi-mirrors.org 可以有兴趣看一下。似乎目前国内在积级更新的也只有阿里云和豆瓣了。豆瓣的更新速度一般在10分钟之内，非常快……
 
-### 扩展讨论
+### 几点建议
 
 1. 关于搜索
 
@@ -54,3 +54,7 @@ permalink: changing-pypi-url-to-speed-up-pip-install
 2. 关于显示默认的源
 
     直到现在，pip都没有给出列出已经配置的源主机的命令。与之相对应的是，yum几乎每次执行时都会在屏幕上回显repository对应的url……呼吁pip的开发者加上此功能。
+
+3. 关于HTTPS协议
+
+    希望阿里云及豆瓣的镜像尽早部署HTTPS协议。（技术上应该已经解决，阿里云最近正在给HTTPS协议CDN打广告就是一个证明）
