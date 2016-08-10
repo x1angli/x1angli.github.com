@@ -26,8 +26,9 @@ permalink: setting-up-python-3-on-centos-chs
 
 这个问题既包括通过通过yum方式安装的pip，也包括通过bootstrap.pypa.io脚本安装的pip。即使用户名为root也同样如此。
 
-一种解决方案：弃用虚拟环境直接使用全局python…… 
-
+解决方案1：弃用虚拟环境直接使用全局python…… 
+解决方案2：用`sudo -H venv/bin/pip3 install ...` 而不是`sudo pip3 install ...`
+解决方案3：先执行`sudo chmod -R o+rwx ....`给目录赋予权限，这样就不需要在pip前加sudo了
 
 ## 目标读者
 
