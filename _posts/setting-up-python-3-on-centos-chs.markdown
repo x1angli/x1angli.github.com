@@ -20,7 +20,13 @@ permalink: setting-up-python-3-on-centos-chs
 
 ## 已知问题
 
-由于通过此种方式安装的virtualenv有可能会被sudo命令失效，即，用户先通过virtualenv命令建立一个虚拟环境，然后再激活此虚拟环境。这时候，任何sudo后的pip命令都将指向全局python环境，而不是指向沙盒中的虚拟环境；只有普通的pip或pip3命令会指向虚拟环境。然而不幸的是，很多包在通过pip安装时都需要sudo权限。一种解决方式是弃用虚拟环境，直接使用全局python…… 
+请小心：安装的virtualenv有可能会被sudo命令失效。
+
+具体情况：用户先通过virtualenv命令建立一个虚拟环境，然后再激活此虚拟环境。此时，任何sudo接pip命令都将指向全局python环境，而不是指向沙盒中的虚拟环境；只有不带sudo的pip或pip3命令会指向虚拟环境。然而不幸的是，很多包在通过pip安装时都会请求sudo权限，如果没有sudo，那么pip install就无法成功安装包。
+
+这个问题既包括通过通过yum方式安装的pip，也包括通过bootstrap.pypa.io脚本安装的pip。即使用户名为root也同样如此。
+
+一种解决方案：弃用虚拟环境直接使用全局python…… 
 
 
 ## 目标读者
@@ -74,7 +80,9 @@ permalink: setting-up-python-3-on-centos-chs
 > 注2：相对于`sudo easy_install-3.4 pip`，一些教程建议的是 `sudo easy_install pip`，漏掉了版本号`3.4`。<br />
 > 然而，这样只会安装Python 2的pip。而Python 2的pip应该已经在Centos上预先安装，且pip for python 2不是我们想要的。因此，我们需要调用于`sudo easy_install-3.4 pip`来安装Python 3的pip
 
-> 注3：或许你会想到用`sudo yum -y install python34-pip`或`sudo yum -y install python3-pip`，两者均行不通的，因为似乎EPEL里没有这个包。而`sudo yum -y install python-pip`则是面向python 2.x的pip 7.1.2
+> 注3：或许你会想到用`sudo yum -y install python34-pip`或`sudo yum -y install python3-pip`。不幸的是，两者均行不通，因为似乎EPEL里没有这个包。而`sudo yum -y install python-pip`则是面向python 2.x的pip 7.1.2
+
+> 注4：也有人会提过：python3.4自带pip。这话对了一半：如果自己下载并make编译会带pip；对于yum的，不奏效。The CentOS 7 yum package for python34 does include the ensurepip module, but for some reason is missing the setuptools and pip files that should be a part of that module. 来源：http://stackoverflow.com/questions/32618686/how-to-install-pip-in-centos-7
 
 #### 用pip去更新自己，并且安装virtuanenv
 
