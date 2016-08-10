@@ -39,23 +39,6 @@ permalink: setting-up-python-3-on-centos-chs
     sudo pip3 install --upgrade virtualenv
 
 
-## 已知问题
-
-请小心：安装的virtualenv有可能会被sudo命令失效。
-
-具体情况：用户先通过virtualenv命令建立一个虚拟环境，然后再激活此虚拟环境。此时，任何sudo接pip命令都将指向全局python环境，而不是指向沙盒中的虚拟环境；只有不带sudo的pip或pip3命令会指向虚拟环境。然而不幸的是，很多包在通过pip安装时都会请求sudo权限，如果没有sudo，那么pip install就无法成功安装包。
-
-这个问题既包括通过通过yum方式安装的pip，也包括通过bootstrap.pypa.io脚本安装的pip。即使用户名为root也同样如此。
-
-#### 解决方案
-* 方案1：弃用虚拟环境直接使用全局python…… 
-* 方案2：用`sudo -H venv/bin/pip3 install ...` 而不是`sudo pip3 install ...`
-* 方案3：先执行`sudo chmod -R o+rwx ....`给目录赋予权限，这样就不需要在pip前加sudo了
-
-#### 参考：
-* http://emilkirkegaard.dk/en/?p=5770
-
-
 ## 详细拆解：
 
 #### 更新yum缓存及已经安装的包
@@ -98,3 +81,23 @@ permalink: setting-up-python-3-on-centos-chs
 这样，你就能在命令行下使用`pip`和`virtualenv`了
 
 > 注：由于在pip3成功安装后，这两个条命令的pip3如果换成pip最终效果也是一样的，所以你也可以用`pip`命令代替其中的`pip3`。
+
+
+## 已知问题
+
+请小心：安装的virtualenv有可能会被sudo命令失效。
+
+具体情况：用户先通过virtualenv命令建立一个虚拟环境，然后再激活此虚拟环境。此时，任何sudo接pip命令都将指向全局python环境，而不是指向沙盒中的虚拟环境；只有不带sudo的pip或pip3命令会指向虚拟环境。然而不幸的是，很多包在通过pip安装时都会请求sudo权限，如果没有sudo，那么pip install就无法成功安装包。
+
+这个问题既包括通过通过yum方式安装的pip，也包括通过bootstrap.pypa.io脚本安装的pip。即使用户名为root也同样如此。
+
+#### 解决方案
+* 方案1：弃用虚拟环境直接使用全局python…… 
+* 方案2：用`sudo -H venv/bin/pip3 install ...` 而不是`sudo pip3 install ...`
+* 方案3：先执行`sudo chmod -R o+rwx ....`给目录赋予权限，这样就不需要在pip前加sudo了
+
+#### 参考：
+* http://emilkirkegaard.dk/en/?p=5770
+
+
+
