@@ -8,13 +8,13 @@ permalink: setting-up-python-3-on-debian-ubuntu-chs
 ---
 # 在Debian或Ubuntu主机上安装Python 3
 
-> 本文将以阿里云基于Debian 8 64位操作系统的ECS实例为样板，介绍如何在Debian或Ubuntu主机上安装Python 3.x，及pip/virtualenv等必备组件
+> 本文将以基于Debian 8的阿里云为样板，介绍如何在Debian或Ubuntu主机上安装Python 3.x，及pip/virtualenv等必备组件
 
 ## 序
 
 虽然网上有一些类似的教程作为参考，主要还是面向国外的公有云用户。由于特殊国情（国际带宽相对受限以及……），国内公有云在访问国外镜像时面临速度慢或访问不稳定等问题。因此，国内用户无法直接照搬这些教程，而需要一份专门针对国情出发的实用系统管理手册。
 
-本文将以阿里云的Debian 64位ECS实例为样板，介绍如何在Debian/Ubuntu主机上安装Python 3.x，及pip/virtualenv等必备组件。
+本文将以64位Debian 8阿里云ECS实例为样板，介绍如何在Debian/Ubuntu主机上安装Python 3.x，及pip/virtualenv等必备组件。
 * 本文所阐述的方法不局限于阿里云，其同样也适用于其他国内的公有云。
 
 ## 目标读者
@@ -60,7 +60,7 @@ permalink: setting-up-python-3-on-debian-ubuntu-chs
     sudo apt-get -y install python3-setuptools
     sudo easy_install-3.4 pip
 
-这里从yum镜像中下载`python34-setuptools`包，并且在本地安装Python 3的pip    
+下载`python34-setuptools`包，并且在本地安装Python 3的pip    
     
 > 注1：也许你会听说这样一种做法：`sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`。<br />
 > 在“出厂”时，阿里云自己的ECS主机已经事先将PyPI的源指向本地镜像，节省了该脚本在下载pip和wheel的.whl文件的时间。所以在执行这一条命令需要小心，有可能PyPI的源会改回官方的源，造成速度降低
