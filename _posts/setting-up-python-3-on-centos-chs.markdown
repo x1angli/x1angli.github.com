@@ -30,6 +30,9 @@ permalink: setting-up-python-3-on-centos-chs
 解决方案2：用`sudo -H venv/bin/pip3 install ...` 而不是`sudo pip3 install ...`
 解决方案3：先执行`sudo chmod -R o+rwx ....`给目录赋予权限，这样就不需要在pip前加sudo了
 
+参考：
+* http://emilkirkegaard.dk/en/?p=5770
+
 ## 目标读者
 
 使用RHEL-Based Linux的国内公有云的程序员、系统管理员。
