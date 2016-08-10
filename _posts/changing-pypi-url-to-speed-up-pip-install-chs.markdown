@@ -22,7 +22,7 @@ permalink: changing-pypi-url-to-speed-up-pip-install
 
 #### 1. 确定pip配置文件所在的目录和路径
 
-本人倾向于使用全局配置，这样万一更换用户名后（比如从root换成普通用户），设置依然生效。你可从别的网站（https://pip.pypa.io/en/stable/user_guide/#configuration）上得到用户级的设置方式。
+本人倾向于使用全局配置，这样万一更换用户名后（比如从root换成普通用户），设置依然生效。你可从[pypa网站](https://pip.pypa.io/en/stable/user_guide/#configuration)上得到用户级的设置方式。
 
 1. Linux下的路径： `/etc/pip.conf`
 2. Mac OS下的路径：`/Library/Application Support/pip/pip.conf`
@@ -43,7 +43,7 @@ permalink: changing-pypi-url-to-speed-up-pip-install
 
 2. 有一个比较不同镜像更新效率的网站：https://www.pypi-mirrors.org 可以有兴趣看一下。似乎目前国内在积级更新的也只有阿里云和豆瓣了。豆瓣的更新速度一般在10分钟之内，非常快……
 
-### 几点建议
+### 吐槽与转进
 
 1. 关于搜索
 
@@ -57,4 +57,8 @@ permalink: changing-pypi-url-to-speed-up-pip-install
 
 3. 关于HTTPS协议
 
-    希望阿里云及豆瓣的镜像尽早部署HTTPS协议。（技术上应该已经解决，阿里云最近正在给HTTPS协议CDN打广告就是一个证明）
+    希望阿里云镜像尽早部署HTTPS协议。（技术上应该已经解决，阿里云最近正在给HTTPS协议CDN打广告就是一个证明）。豆瓣已经有[支持https的PyPI镜像](https://pypi.doubanio.com/simple/)了。
+
+4. 关于镜像URL
+
+    为什么豆瓣和阿里云的网址均以simple结尾？偶图样图森破了……
