@@ -83,7 +83,7 @@ permalink: setting-up-python-3-on-centos-chs
 
 > 注3：或许你会想到用`sudo yum -y install python34-pip`或`sudo yum -y install python3-pip`。不幸的是，两者均行不通，因为似乎EPEL里没有这个包。而`sudo yum -y install python-pip`则是面向python 2.x的pip 7.1.2
 
-> 注4：也有人会提过：python3.4自带pip。这话对了一半：如果自己下载并make编译会带pip；对于yum的，不奏效。The CentOS 7 yum package for python34 does include the ensurepip module, but for some reason is missing the setuptools and pip files that should be a part of that module. 来源：http://stackoverflow.com/questions/32618686/how-to-install-pip-in-centos-7
+> 注4：也有人会提过：python3.4自带pip。这话对了一半：如果自己下载并make编译的python3会自带pip；然而对于yum的python3，需要另行安装。The CentOS 7 yum package for python34 does include the ensurepip module, but for some reason is missing the setuptools and pip files that should be a part of that module. 来源：http://stackoverflow.com/questions/32618686/how-to-install-pip-in-centos-7
 
 #### 用pip去更新自己，并且安装virtuanenv
 
