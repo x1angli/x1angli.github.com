@@ -74,7 +74,7 @@ permalink: setting-up-python-3-on-centos-chs
 这里从yum镜像中下载`python34-setuptools`包，并且在本地安装Python 3的pip    
     
 > 注1：也许你会听说这样一种做法：`sudo curl https://bootstrap.pypa.io/get-pip.py | python3.4`。<br />
-> 由于阿里云自己的ECS主机已经事先将PyPI的源指向本地镜像，即http://mirrors.aliyun.com/pypi/，节省了该脚本在下载pip和wheel的.whl文件的时间。
+> 由于阿里云自己的ECS主机已经事先将PyPI的源指向本地镜像，节省了该脚本在下载pip和wheel的.whl文件的时间。
 > 然而，如果你的ECS主机没有改过PyPI源指向，考虑到国内的VPS所在的机房连国外一般非常慢，导致在执行这一条时会花费非常长的时间，因此不建议在PyPI在指向国外镜像时如此使用。
 
 > 注2：相对于`sudo easy_install-3.4 pip`，一些教程建议的是 `sudo easy_install pip`，漏掉了版本号`3.4`。<br />
