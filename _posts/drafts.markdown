@@ -19,12 +19,12 @@ HTTP协议默认为80端口，HTTPS默认为443端口。这两个都是特权端
 
 另，有介绍用shared socket实现，比如:
 
-> 80端口：
+> 80端口的HTTP服务器：
 > 
 >     uwsgi --shared-socket 0.0.0.0:80 --uid roberto --gid roberto --http =0
 > 
 > 
-> 443端口：
+> 443端口的HTTPS服务器：
 > 
 >     uwsgi --shared-socket 0.0.0.0:443 --uid roberto --gid roberto --https =0,foobar.crt,foobar.key
 > 
