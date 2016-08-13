@@ -66,8 +66,14 @@ permalink: setting-up-python-3-on-debian-ubuntu-chs
 > 在“出厂”时，阿里云自己的ECS主机已经事先将PyPI的源指向本地镜像，节省了该脚本在下载pip和wheel的.whl文件的时间。所以在执行这一条命令需要小心，有可能PyPI的源会改回官方的源，造成速度降低。因此用户在执行命令后，请注意检查PyPI的源，若发现已被修改到慢速镜像，请改回相对快速的本地区镜像。
 
 > 注2：或许你会想到用`sudo apt-get -y install python3-pip`。不幸的是，如果你通过这种方式安装pip后，会存在以下问题：
-> 1）pip的版本只有可怜的`1.5.6`，更关键的是，在安装1.5版python3-pip之后，pip的版本将被锁定，你无法用新版本的pip（除非调用`apt-get -y remove python3-pip`）
-> 2）以下的包会被一同安装：python3-chardet, python3-colorama, python3-distlib, python3-six, python3-html5li
+> 1）pip的版本只有可怜的`1.5.6`，更关键的是，在安装1.5版python3-pip之后，pip的版本将被锁定，你无法用新版本的pip（除非调用`apt-get -y remove python3-pip`），参见下面的信息
+
+>     Installing collected packages: pip
+>     Found existing installation: pip 1.5.6
+>     Not uninstalling pip at /usr/lib/python3/dist-packages, owned by OS
+
+> 2）以下的包会被一同安装。这些包本来应该由pip管理，现在却交由apt-get管理。且这些包的版本相对非常老旧：python3-chardet, python3-colorama, python3-distlib, python3-six, python3-html5li
+> 总之，强烈不建议执行`sudo apt-get -y install python3-pip`命令。
 
 > 注3：相对于`sudo easy_install-3.4 pip`，一些教程建议的是 `sudo easy_install pip`，漏掉了版本号`3.4`。<br />
 > 然而，这样只会安装Python 2的pip。而Python 2的pip应该已经在Centos上预先安装，且pip for python 2不是我们想要的。因此，我们需要调用于`sudo easy_install-3.4 pip`来安装Python 3的pip
